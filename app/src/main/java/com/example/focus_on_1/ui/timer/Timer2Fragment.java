@@ -1,4 +1,4 @@
-package com.example.focus_on_1.ui.info;
+package com.example.focus_on_1.ui.timer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,24 +10,28 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.focus_on_1.databinding.FragmentInfoBinding;
 
-public class InfoFragment extends Fragment {
+import com.example.focus_on_1.databinding.FragmentTimer2Binding;
 
-    private FragmentInfoBinding binding;
+
+
+public class Timer2Fragment extends Fragment{
+
+    private FragmentTimer2Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        InfoViewModel galleryViewModel =
-                new ViewModelProvider(this).get(InfoViewModel.class);
+        Timer2ViewModel Timer2ViewModel =
+                new ViewModelProvider(this).get(Timer2ViewModel.class);
 
-        binding = FragmentInfoBinding.inflate(inflater, container, false);
+        binding = FragmentTimer2Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textInfo;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTimer;
+        Timer2ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
